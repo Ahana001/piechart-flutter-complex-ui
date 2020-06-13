@@ -7,17 +7,15 @@ class PieChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 230,
-        width: 300,
+        height: 250,
+        width: 250,
         decoration: BoxDecoration(
             shape: BoxShape.circle,
             boxShadow: customShadow,
             color: Colors.white30),
         child: Stack(children: <Widget>[
-          Container(
-            padding: EdgeInsets.all(10),
-            height: 230,
-            width: 300,
+          Padding(
+            padding: const EdgeInsets.all(10.0),
             child: CustomPaint(
               child: Container(),
               foregroundPainter: PieChartPainter(),
@@ -26,7 +24,7 @@ class PieChart extends StatelessWidget {
           Center(
             child: Container(
               height: 90,
-              width: 100,
+              width: 90,
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   boxShadow: customShadow,
@@ -52,7 +50,7 @@ class PieChartPainter extends CustomPainter {
       total += element['amount'];
     });
 
-    for (int i; i < expenses.length; i++) {
+    for (int i=0; i < expenses.length; i++) {
       var currentexpense = expenses[i];
       var sweepRadius = currentexpense['amount'] / total * 2 * pi;
       paint.color = pieColors[i];
